@@ -56,7 +56,7 @@ namespace ThiefAndPoliceTest
                     if (cityMap[row, col].Count >1)
                     {
                         cityMap[row, col].ElementAt(0).Colision(cityMap[row, col].ElementAt(1));
-                        Thread.Sleep (1000);
+                        Thread.Sleep (100);
                     }
 
                 }

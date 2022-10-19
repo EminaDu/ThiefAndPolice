@@ -35,15 +35,15 @@ namespace ThiefAndPoliceTest
                 Random rnd = new Random();
 
                 int belongingIndex = rnd.Next(0,Belongings.Count);
-               
-                if(Belongings.Count>0) 
+
+                if (Belongings.Count > 0)
                 {
-                    return;
-                }
-                
+                    //return;
                 ((Thief)person).StolenGoods.Add(Belongings[belongingIndex]);
                 Belongings.RemoveAt(belongingIndex);
                 Console.WriteLine("Tjuv rånar medborgare!");
+
+                }
 
 
             }

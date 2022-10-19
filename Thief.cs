@@ -25,11 +25,11 @@ namespace ThiefAndPoliceTest
                
                 if(((Citizen)person).Belongings.Count > 0)
                 {
-                    return;
-                }
+                    
                 StolenGoods.Add(((Citizen)person).Belongings[belongingIndex]);
                 ((Citizen)person).Belongings.RemoveAt(belongingIndex);
                 Console.WriteLine("Tjuv rånar medborgare!");
+                }
 
 
             }

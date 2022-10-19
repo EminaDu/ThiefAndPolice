@@ -19,7 +19,7 @@ namespace ThiefAndPoliceTest
         {
             Name = "C";
             Belongings = new List<Thing> { 
-            new Thing (name: "Wallet"),
+            new Thing (name: "Plånbok"),
             new Thing (name: "Keys"),
             new Thing (name: "Cell phone"),
             new Thing (name: "Money") };

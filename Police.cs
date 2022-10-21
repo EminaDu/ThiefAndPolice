@@ -12,24 +12,31 @@ namespace ThiefAndPoliceTest
          public List<Thing> Seized { get; set; }
 
 
-        public Police() 
+        public Police(int rowSize, int colSize) : base(rowSize, colSize)
         {
             Name = "P";
             Seized = new List<Thing>();
         }
-        public override void Colision(Person person)
+        public override bool Colision(Person person)
         {
+            bool successful = false;
             if (person is Thief)
             {
+                if (((Thief)person).StolenGoods.Count() > 0)
+                {
+                    successful = true;
+                }
                 foreach (Thing Good in ((Thief)person).StolenGoods)
                 {
                     Seized.Add(Good);
 
                 }
                ((Thief)person).StolenGoods = new List<Thing>();
+                Arrested++;
                 Console.WriteLine("Polis tar tjuv!");
             
             }
+            return successful;
         }
 
     }

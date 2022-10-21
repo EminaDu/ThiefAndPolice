@@ -13,37 +13,34 @@ namespace ThiefAndPoliceTest
         public int LocationCol { get; set; } //nuvarande position, ges av direction
         public int DirectionRow { get; set; }
         public int DirectionCol { get; set; }
-        
-         
+        public int Robbed { get; set; }
+        public int Arrested { get; set; }
 
-        public Person()
+
+
+        public Person(int rowSize, int colSize)
         {
             Random rnd = new Random();
-            LocationRow = rnd.Next(0,25);
-            LocationCol = rnd.Next(0,100);
+            LocationRow = rnd.Next(0,rowSize);
+            LocationCol = rnd.Next(0,colSize);
 
-            DirectionRow = rnd.Next(-1,2);
-            DirectionCol = rnd.Next(-1,2);
+            DirectionRow = rnd.Next(-1, 2);
+            DirectionCol = rnd.Next(-1, 2);
             Name = " ";
-
-            
+            Robbed = 0;
+            Arrested = 0;
         }
 
         
   
-        public virtual void Colision(Person person)
+        public virtual bool Colision(Person person)
         {
-
+            return false;
         }
 
         public void Move(int cityRows, int cityCols)
         {
-            Random rnd = new Random();
-            
-            DirectionRow = rnd.Next(-1, 2);
-            DirectionCol = rnd.Next(-1, 2);
-
-            LocationRow = (LocationRow + DirectionRow) % cityRows ;
+            LocationRow = (LocationRow + DirectionRow) % cityRows;
             LocationCol = (LocationCol + DirectionCol) % cityCols;
             if (LocationCol < 0)
             {
@@ -55,7 +52,6 @@ namespace ThiefAndPoliceTest
                 LocationRow =cityRows -1;
 
             }
-
         }
 
 

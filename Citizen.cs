@@ -15,21 +15,25 @@ namespace ThiefAndPoliceTest
          public List<Thing> Belongings { get; set; }
 
 
-        public Citizen() 
+        public Citizen(int rowSize, int colSize):base(rowSize, colSize)
         {
             Name = "C";
-            Belongings = new List<Thing> { 
-            new Thing (name: "Plånbok"),
-            new Thing (name: "Keys"),
-            new Thing (name: "Cell phone"),
-            new Thing (name: "Money") };
+            Belongings = new List<Thing> {
+                new Thing (name: "Plånbok"),
+                new Thing (name: "Keys"),
+                new Thing (name: "Cell phone"),
+                new Thing (name: "Money") 
+            };
             
             
         }
+
+        
         
 
-        public override void Colision(Person person)
+        public override bool Colision(Person person)
         {
+            bool successful = false;
             if (person is Thief)
             {
                 Random rnd = new Random();
@@ -38,15 +42,15 @@ namespace ThiefAndPoliceTest
 
                 if (Belongings.Count > 0)
                 {
-                    //return;
-                ((Thief)person).StolenGoods.Add(Belongings[belongingIndex]);
-                Belongings.RemoveAt(belongingIndex);
-                Console.WriteLine("Tjuv rånar medborgare!");
-
+                    successful = true;  
+                    ((Thief)person).StolenGoods.Add(Belongings[belongingIndex]);
+                    Belongings.RemoveAt(belongingIndex);
+                    Robbed++;
+                    Console.WriteLine("Tjuv rånar medborgare!");
                 }
 
-
             }
+            return successful;
         }
             
     }

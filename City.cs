@@ -248,12 +248,12 @@ namespace ThiefAndPoliceTest
             }
         }
         
-        public void Print()
-        {
-            CalculateNumberOfColisions();
-            Console.WriteLine("Antal rånade medborgare: " + numberOfPeopleRobbed);
+        //public void Print()
+        //{
+        //    CalculateNumberOfColisions();
+        //    Console.WriteLine("Antal rånade medborgare: " + numberOfPeopleRobbed);
 
-            Console.WriteLine("Antal gripna tjuvar: " + numberOfThiefsCatched);
-        }
+        //    Console.WriteLine("Antal gripna tjuvar: " + numberOfThiefsCatched);
+        //}
     }
 }

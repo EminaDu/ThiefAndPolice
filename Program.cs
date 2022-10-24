@@ -10,7 +10,7 @@
                 city.Move();
                 city.ShowCity();
                 city.CheckForCoisions();
-                city.Print();
+                //city.Print();
                 
             }
         }
